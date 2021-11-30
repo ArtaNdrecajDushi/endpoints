@@ -43,14 +43,14 @@ server.get("/colors/:colorId", (req, res) =>{
 })
 //PUT       /products/:productsID     204
 
-server.put("/colors/colorId", (req, res) => {   //not working
+server.put("/colors/colorId", (req, res) => {   //not working (with PATCH neither)
     const newColor = colors.find(color => color.id === +req.params.colorId);
     newColor[name] = "black"
     res.status(200).json(newColor)
 })
 //DELETE    /products/productsID      204
 
-server.delete("/colors/colorId", (req, res) => {
+server.delete("/colors/colorId", (req, res) => {  //not working
     const removeItem = colors.filter(color => color.id === +req.params.colorId);
     res.status(200).json(removeItem)
 });
