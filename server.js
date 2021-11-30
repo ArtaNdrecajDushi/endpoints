@@ -43,11 +43,17 @@ server.get("/colors/:colorId", (req, res) =>{
 })
 //PUT       /products/:productsID     204
 
-server.put("/colors/colorId", (req, res) => {   //not working (with PATCH neither)
-    const newColor = colors.find(color => color.id === +req.params.colorId);
-    newColor[name] = "black"
-    res.status(200).json(newColor)
+server.put("/colors/:colorId", (req, res) =>{
+    console.log({raw:req.params.colorId, casted:+req.params.colorId})
+    const color = colors.find(color => color.id === +req.params.colorId);
+    color.name = "black"
+    res.status(200).json(color)
 })
+// server.put("/colors/:colorId", (req, res) => {   //not working (with PATCH neither)
+//     const newColor = colors.find(color => color.id === +req.params.colorId);
+//     newColor.name = "black"
+//     res.status(200).json(newColor)
+// })
 //DELETE    /products/productsID      204
 
 server.delete("/colors/colorId", (req, res) => {  //not working
