@@ -1,0 +1,5 @@
+POST      /products                 201
+GET       /products                 200
+GET       /products/:productsID     200
+PUT       /products/:productsID     204
+DELETE    /products/productsID      204
